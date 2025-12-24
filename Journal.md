@@ -137,3 +137,68 @@ After switching the MicroSD card footprint I spent the next few hours just routi
 
 Here you can see the signals on the bottom being routed over power planes with some splits, most of them are just low frequency gpio signals so it doesn't matter
 ![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/30e4699e443a859f_X9tB9iG6SaudQAAAABJRU5ErkJggg__)
+
+
+### Time Spent:
+
+
+---
+
+## Finished up PCB
+
+Looking back at my design this morning, I saw a lot of room for improvement and did a whole lotta changes on the boards.
+
+The first major change I did was I deleted a bunch of traces under the VS1053B and thought about how to route them better. One such example would be the DCS and CS traces as shown below' routing them to different pins on the STM32 would allow me to route the traces OUT of the VS1053 instead of IN if you get what I'm saying.
+
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/1ed4b82902c2d29f_j84PNW9jKnUqwAAAABJRU5ErkJggg__)
+
+
+The second thing I did was I made both the inner layers a solid ground pour to server as reference plane. For power I decided to pour it on top and bottom layers as shown below-
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/c683dcb0e3950739_wc6CaCN1yhYywAAAABJRU5ErkJggg__)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/37da45c7388d7c8d_8BPyyuFXxk3XoAAAAASUVORK5CYII_)
+
+Doing this was a bit more harder compared to just a straight up power plane pour for obvious reasons; I had to now manually route traces to pull up resistors and 3v3 pins that were far away from the VS1053B, but it was still overall worth it.
+I spent quite a bit of time just cleaning up the board and optimizing the traces. After I was satisfied I moved onto silkscreen!!
+Having good silkscreen labels is so vital on a PCB, it saves you so much time if you label all the GPIOs and important stuff so you don't have to refer back to the schematic later.
+
+(oh yeah another thing, I switched from a 2x5 header to a 1x8 header just cause I didn't have enough space to route out 10 signals)
+
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/b2dd289122713b5f_wHNbCRM2c7NvwAAAABJRU5ErkJggg__)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/29a8bb6875ae4185_6hlgIAAAAAAANQ4QoAAAAAMJDy6adtmgUAAAAAMAQVrgAAAAAAAxG4AgAAAAAMxKZZAAAAAAADUeEKAAAAADCQ8umnVbgCAAAAAAxBhSsAAAAAwEAErgAAAAAAAymffvrntRQAAAAAABhA_dRTergCAAAAAAxBSwEAAAAAgIEIXAEAAAAABiJwBQAAAAAYiE2zAAAAAAAGUj71lMAVAAAAAGAIfwdhYK6DP4SyDQAAAABJRU5ErkJggg__)
+
+
+After this I added some more tiny things to the board like Test Points for the power rails and some LEDs connected to the STM32 
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/f6ea6370ea5ea07a_MHh4xwv4W7AAAAAASUVORK5CYII_)
+
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/d8da1617ba7c607d_AfMDPZrQlzRDAAAAAElFTkSuQmCC)
+
+
+I also ended up rerouting my stereo out traces, I added 20R series resistor to them in case I wanted to drive lower impedance earphones (the VS1053 is only capable of driving 30ohm loads). The traces were now routed OUT from the chip and then went to the 3.5mm jack; they originally were routed IN the chip and the whole area was pretty crowded so this was a major improvement I would say.
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/191cbc50852b207c_wMLWo7Q01yTxAAAAABJRU5ErkJggg__)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/f87cb0329143f308_F9xIVhdTWl9JSK5BGYzdt2Yfqd06ibvyyukqO1L7iFXb0yE5Mzis_dL9uLVr0hXKsCKRZ_cW0FpTqzYntoses1a6ENGLGsoxVL2xeJxUVquQ2YUUpP6f8HbDYHeq7aXoMAAAAASUVORK5CYII_)
+
+
+I also spent some time setting up the github repository and making a reddit post on r/PrintedCircuitBoards for a board review for this.
+All in all this how my board looks like at the end of the day!
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/4f8097807a9fbefc_H9mUungo6XIWQAAAABJRU5ErkJggg__)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/1a595181ce554880_H4HupGMFF55hAAAAAElFTkSuQmCC)
+
+( I absolutely cooked on the silkscreen )
+
+### Time Spent: 6 Hours
+
+
+
+
+
