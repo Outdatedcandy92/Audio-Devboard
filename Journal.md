@@ -1,5 +1,7 @@
 # Audio Devboard
 
+### Total Time Spent: 21.5 Hours
+
 ---
 
 ## Initial Planning - 18/12/25
@@ -79,7 +81,7 @@ I was quite happy with revision 2 of the design, so I went back to kicad and jus
 ### Time Spent: 5.5 Hours
 
 ---
-## PCB Time!!
+## PCB Time!! - 22/12/25
 
 Currently writing this journal at 1am, I had basically the most productive day today and genuinely entered flow state while designing the PCB.
 
@@ -139,12 +141,12 @@ Here you can see the signals on the bottom being routed over power planes with s
 ![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/30e4699e443a859f_X9tB9iG6SaudQAAAABJRU5ErkJggg__)
 
 
-### Time Spent:
+### Time Spent: 6.5
 
 
 ---
 
-## Finished up PCB
+## Finished up PCB - 23/12/25
 
 Looking back at my design this morning, I saw a lot of room for improvement and did a whole lotta changes on the boards.
 
@@ -198,7 +200,17 @@ All in all this how my board looks like at the end of the day!
 
 ### Time Spent: 6 Hours
 
+---
+
+## Finishing up! - 24/12/25
 
 
+Finished up the PCB today, did some minor silkscreen changes. I edited out the OSHW svg to remove the text and only keep the logo. After that I spent some time setting up the GitHub repository for this project; Exported all my source files, generated PDFs and stuff, wrote the readme; I moved onto generating the BOM and getting the project cost which is where I ran into a problem, you see kicad has a pretty weird way for BOM management, which as a EasyEDA user I felt pretty clunkyish. I had to spent about 30 minutes figuring out how it works and then assigned a LCSC part number to each component.
 
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/9202fe815e482d7d_wOtHdtsj0pUSwAAAABJRU5ErkJggg__)
 
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/46c9f0193d4a91a7_ncjqe37DepoQCnvlh_xYuoPBbxu_q85v_OtbHukb7A5fM1bOftWCrAAAAAElFTkSuQmCC)
+
+After finishing up the final BOM, I spent a few minutes beautifying the repository and called it a day. The Audio Development board was finally finished!!
+
+### Time Spent: 1.5 Hours
