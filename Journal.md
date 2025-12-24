@@ -61,6 +61,7 @@ Drawing up concept sketches is something that actually helps a lot I would say, 
 
 
 *Revision 1*
+
 ![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/02a1fbd4978ed172_ALZ1Xa2VuvHVAAAAAElFTkSuQmCC)
 
 For Rev 1, I had a rectangular board with the decoder chip in the middle and SD card and GPIO on opposite sides of the boards, and then some on board buttons to interact with the chip (add pause/play and whatever functionality I wanted later on)
@@ -69,9 +70,70 @@ But I quickly realized that this isn't really optimal as I'd have to route SPI t
 
 
 *Revision 2*
+
 ![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/9caec16beaafccfa_w_ySRCDXfwYngAAAABJRU5ErkJggg__)
 
 
 I was quite happy with revision 2 of the design, so I went back to kicad and just assigned footprints to most of the parts and called it a day.
 
 ### Time Spent: 5.5 Hours
+
+---
+## PCB Time!!
+
+Currently writing this journal at 1am, I had basically the most productive day today and genuinely entered flow state while designing the PCB.
+
+I first started off with just completing up the schematics and assigning footprints.
+
+*Schematics*
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/1e0f8e1de0d40cf0_A0_jl2vLX5n1AAAAAElFTkSuQmCC)
+
+
+You can probably see I added a bit more stuff, such as the mounting holes, the pin header and some general purpose switches.
+
+After doing that I assigned net classes to different sections like power, SPI signals and USB signals so I could visualize them better in the PCB editor.
+
+*PCB*
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/a7f59afcc087a500_PGDyTL7zBrRj11NVgMAAAAAAAAAgLtl7rGPxcWnJrpP4Org8AMfiZf_6kFNUHeJNaIfJqsBAAAAAAAAAIyAUZ6sBowGk9UAAAAAAAAAAAAYuP8fNHanwrwyilYAAAAASUVORK5CYII_)
+
+
+Assigning different net colors made it a whole lot easier for me to layout components as I could easily visualize how connections would look without being overwhelmed by a bajillion rastnets. 
+Component layout took a *long time*, I went with a 56x36mm board size and added a 2.5mm fillet to the edges. 
+I actually spent quite a significant bit of time just laying out components, as I wanted it to be functional and look like a work of art. You can sort of see the layout progress down below.
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/18267a804118e686_39DRN5VKErpOwAAAABJRU5ErkJggg__)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/2a53f6e3605514d6_akzzCnCNaV4WNZUV5c6RLJNsRFBrTPPyqcY0L4sa5t4sL59qTPOyqGHuzfLyqcY0L4sa5t4sL59qTPOyqGHuzfLyqcY0L4sa5t4sL59qTPOyqGHuzfLyqcY0L4sam7mX5XVM_VFjmpdPNaZ5WdQw92Z5_VRjmpdFDXNvlpdPNaZ5WdT0du4zVFzW6T0JAAAAAAAAAEhtCVf_AgAAAAAAAABSE81fAAAAAAAAAAghmr8AAAAAAAAAEEI0fwEAAAAAAAAghGj_AgAAAAAAAEAI0fwFAAAAAAAAgBCi_QsAAAAAAAAAIUTzFwAAAAAAAABC6P8HBAJ7fmdM3zcAAAAASUVORK5CYII_)
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/c4d26786684b540a_ayxZQAwAAAChxBAAAAAAAwIkjAAAAAAAAShwBAAAAAABw4ggAAAAAAIASRwAAAAAAAJw4AgAAAAAAoMQRAAAAAAAAJ44AAAAAAAAocQQAAAAAAMCJIwAAAAAAAEocAQAAAAAAcOIIAAAAAACAEkcAAAAAAACcOAIAAAAAAKDEEQAAAAAAACeOAAAAAAAAKHEEAAAAAADAiSMAAAAAAABKHAEAAAAAAHDiCAAAAAAAgBJHAAAAAAAAnDgCAAAAAACgxBEAAAAAAAAnjgAAAAAAAChxBAAAAAAAwIkjAAAAAAAAShwBAAAAAABwA5ijW6Of0WKqAAAAAElFTkSuQmCC)
+
+
+This is how it all looked out in the end!
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/6250318b511a3f72_wm3_K8ImwxYAAAAASUVORK5CYII_)
+
+
+I was pretty happy with this layout and moved onto routing the board. Routing this board was a teeny bit problematic for me, mainly because of how crowded some areas of the board were. But here's an in progress picture of routing.
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/0eb6c7a5f9a981db_wMYVFnFXAjgcQAAAABJRU5ErkJggg__)
+
+Right around this time I noticed something, I accidentally put the MicroSD card reader in the wrong orientation, the pins are actually suppose to be facing the edge of the board like in the image shown down below. Now this came with it's own set of problems, mainly being that there was now not enough space between the reader and the STM32, and I can't move the STM32 to the left.
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/11c64415b0d2c7b1_P7tn6y7E3r0GAAAAAElFTkSuQmCC)
+
+
+To solve the space issue, I decided to switch out my SD card reader from a push-push to a push-pull type which takes up less space.
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/415783d52692f3b8_RLePIPL8p3pyQ1w0r0EtXikajzEhERERHFm5phZXgSFR4SdV4iIiIiongaMEuYEgwrwRIVHrhOCxERERGlu4gDC8NKaIkKLVynhYiIiIjSWUSBhWFlcIkKLYk6LxERERHRSFMcWBhWlElUNy2GFiIiIiJKR4oCC8NKZBLVTYuhhYiIiIjSzZCBhWElOokKD4k6LxERERHRSBg0sDCsDE_iwkOizktEREREFGthAwvDSmwkKjwk6rxERERERLEUMrAwrMRWosJDos5LRERERBQrAwILw8rISFR4SNR5iYiIiIhi4f8DSNf4PU9QrIcAAAAASUVORK5CYII_)
+
+
+After switching the MicroSD card footprint I spent the next few hours just routing the board. I went with a 4 layer stackup of SIG/GND/PWR/SIG for now. Though I do want to switch it out later for something better where the bottom layers actually have a solid ground reference, right now audio signals are going through Top layer to Bottom layer, and are referencing a power plane on the bottom layer which is not good. 
+
+*PCB Rev 1*
+
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/a001d6abb664ae2d_y5AAAAAElFTkSuQmCC)
+
+
+
+Here you can see the signals on the bottom being routed over power planes with some splits, most of them are just low frequency gpio signals so it doesn't matter
+![image](https://hc-cdn.hel1.your-objectstorage.com/s/v3/30e4699e443a859f_X9tB9iG6SaudQAAAABJRU5ErkJggg__)
